@@ -55,6 +55,14 @@
                                     </a>
                                 </div>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Cache Stratety</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Balancing Stratety</a>
+                            </li>
                         </ul>
 
                     @endauth
