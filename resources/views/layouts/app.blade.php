@@ -37,33 +37,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     @auth
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                    Stream Points
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item"
-                                        href="#">
-                                        Registrar
-                                    </a>
-                                    <a class="dropdown-item"
-                                        href="#">
-                                        Prioridade
-                                    </a>
-                                </div>
-                            </li>
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('stream_points.index') }}">Stream Points</a>
+                        </li>
 
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Cache Stratety</a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Balancing Stratety</a>
-                            </li>
-                        </ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Performance Stratety</a>
+                        </li>
+                    </ul>
 
                     @endauth
 
