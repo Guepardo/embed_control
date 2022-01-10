@@ -15,7 +15,7 @@ class CreateSettingsTable extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string("balance_strategy")->default('priority');
+            $table->string('balance_strategy')->default('priority');
             $table->integer('revalidate_seconds')->default(59);
             $table->timestamps();
         });

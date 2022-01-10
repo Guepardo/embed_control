@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Console\SettingsController;
 use App\Http\Controllers\Console\StreamPointsController;
 
 /*
@@ -22,3 +23,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('stream_points', StreamPointsController::class);
+Route::resource('settings', SettingsController::class)->only(['index', 'update']);

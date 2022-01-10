@@ -39,11 +39,15 @@
                     @auth
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('stream_points.index') }}">Stream Points</a>
+                            <a class="nav-link" href="{{ route('stream_points.index') }}">
+                               Stream Points
+                            </a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Performance Stratety</a>
+                            <a class="nav-link" href="{{ route('settings.index') }}">
+                                Performance Stratety
+                            </a>
                         </li>
                     </ul>
 

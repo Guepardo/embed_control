@@ -84,6 +84,8 @@ class StreamPointsController extends Controller
         $resource->fill($data['stream_point']);
         $resource->save();
 
+        session()->flash('success', 'Registro atualizado com sucesso.');
+
         return redirect()->route('stream_points.index');
     }
 
