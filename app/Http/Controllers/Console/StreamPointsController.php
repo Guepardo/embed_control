@@ -97,6 +97,11 @@ class StreamPointsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $resource = StreamPoint::findOrFail($id);
+        $resource->delete();
+
+        session()->flash('success', 'Deletado com sucesso.');
+
+        return redirect()->route('stream_points.index');
     }
 }

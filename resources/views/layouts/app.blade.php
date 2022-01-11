@@ -40,7 +40,7 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('stream_points.index') }}">
-                               Stream Points
+                                Stream Points
                             </a>
                         </li>
 
@@ -100,6 +100,6 @@
             </div>
         </main>
     </div>
+    @stack('scripts')
 </body>
-
 </html>

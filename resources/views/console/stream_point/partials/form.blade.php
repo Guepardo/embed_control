@@ -1,3 +1,30 @@
+@if ($resource->cdn_host)
+  @push('scripts')
+    <script type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/clappr@latest/dist/clappr.min.js">
+    </script>
+
+    <script>
+      var player = new Clappr.Player({source: '{{ $resource->cdn_host }}', parentId: "#player"})
+    </script>
+  @endpush
+
+  <div class="card">
+    <div class="card-header">
+      Preview
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <div id='player'></div>
+        </div>
+      </div>
+    </div>
+  </div>
+@endif
+
+</br>
+
 <div class="card">
   <div class="card-header">
     General Info
@@ -42,8 +69,7 @@
       <div class="col">
         <label class="form-control-label" for="start_at">Priority </label>
         <select class="form-control" name="stream_point[priority]">
-          @for ($i = 1; $i <= 5; $i++)
-            <option value="{{ $i }}" {{ $priority==$i ? 'selected' : '' }}>
+          @for ($i = 1; $i <= 5; $i++) <option value="{{ $i }}" {{ $priority==$i ? 'selected' : '' }}>
             {{ $i }}
             </option>
             @endfor
@@ -61,11 +87,10 @@
       <div class="col">
         <label class="form-control-label" for="start_at">Active? </label>
         <select class="form-control" name="stream_point[active]">
-          @for ($i = 0; $i <= 1; $i++)
-            <option value="{{ $i }}" {{ $active==$i ? 'selected' : '' }}>
-              {{ $i == 0 ? "No" : "Yes" }}
+          @for ($i = 0; $i <= 1; $i++) <option value="{{ $i }}" {{ $active==$i ? 'selected' : '' }}>
+            {{ $i == 0 ? "No" : "Yes" }}
             </option>
-          @endfor
+            @endfor
         </select>
       </div>
     </div>

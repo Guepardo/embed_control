@@ -33,24 +33,31 @@
         <table class="table">
           <thead>
             <tr>
-              <th scope="col">Id</th>
               <th scope="col">Priority</th>
               <th scope="col">Nome</th>
               <th scope="col">Active</th>
-              <th scope="col"></th>
+              <th scope="col" colspan="2">Actions</th>
             </tr>
           </thead>
           <tbody>
             @forelse ($collection as $item)
             <tr>
-              <td>{{ $item->id }}</td>
               <td>{{ $item->priority }}</td>
               <td>{{ $item->name }}</td>
               <td>{{ $item->active ? "Yes" : "No" }}</td>
               <td>
-                <a class="btn btn-link" href="{{ route('stream_points.edit', $item) }}">
+                <a class="btn btn-primary mr-3" href="{{ route('stream_points.edit', $item) }}">
                   Update
                 </a>
+                <form
+                  action="{{ route('stream_points.destroy', $item) }}"
+                  method="post" style="display:inline;"
+                  onSubmit="return confirm('Are you sure you wish to delete?');"
+                >
+                  @csrf
+                  {{ method_field('delete') }}
+                  <button class="btn btn-danger" type="submit">Delete</button>
+              </form>
               </td>
             </tr>
             @empty

@@ -28,7 +28,8 @@ set('allow_anonymous_stats', false);
 // Hosts
 
 host('production')
-    ->hostname('ubuntu@150.136.243.4')
+    ->hostname('netshowme@161.35.176.90')
+    ->set('http_user', 'netshowme')
     ->set('deploy_path', '/var/www/embed_control')
     ->set('keep_releases', 1);
 

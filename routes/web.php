@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Console\SettingsController;
 use App\Http\Controllers\Console\StreamPointsController;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,14 +13,16 @@ use App\Http\Controllers\Console\StreamPointsController;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return redirect()->route('home');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::resource('stream_points', StreamPointsController::class);
-Route::resource('settings', SettingsController::class)->only(['index', 'update']);
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('stream_points', StreamPointsController::class);
+    Route::resource('settings', SettingsController::class)->only(['index', 'update']);
+});
