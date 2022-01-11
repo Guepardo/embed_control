@@ -18,4 +18,14 @@ class StreamPoint extends Model
     ];
 
     use HasFactory;
+
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
+
+    public function scopeByPriority($query)
+    {
+        return $query->orderBy('priority', 'ASC');
+    }
 }
