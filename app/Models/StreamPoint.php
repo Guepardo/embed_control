@@ -28,4 +28,8 @@ class StreamPoint extends Model
     {
         return $query->orderBy('priority', 'ASC');
     }
+
+    public function scopeByActive($query) {
+        return $query->orderBy('active', 'DESC');
+    }
 }

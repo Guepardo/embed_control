@@ -23,7 +23,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $collection = StreamPoint::orderBy('priority', 'ASC')->get()->toArray();
+        $collection = StreamPoint::byActive()
+        ->byPriority()
+        ->get()
+        ->toArray();
+
         $collection = array_chunk($collection, 2);
 
         return view('home')

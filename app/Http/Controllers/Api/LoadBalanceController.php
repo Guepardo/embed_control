@@ -12,6 +12,7 @@ class LoadBalanceController extends Controller
     {
 
         $streamPoint = StreamPoint::active()
+            ->byActive()
             ->byPriority()
             ->first();
 
@@ -21,6 +22,7 @@ class LoadBalanceController extends Controller
             'setting' => $setting->toArray(),
             'stream_point' => [
                 'cdn_host' => $streamPoint->cdn_host,
+                'name' => $streamPoint->name,
             ],
         ];
 
